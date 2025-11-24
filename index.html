@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Combinational Logic Resources</title>
+  <meta name="description" content="Single-page, mobile-first RWD resources hub with English and Traditional Chinese sections, YouTube sub-sections, language and theme toggles, smart-quote normalization, and URL cleanup." />
+
+  <style>
+    :root {
+      --fs-0: 0.875rem;
+      --fs-1: 1rem;
+      --fs-2: 1.125rem;
+      --fs-3: 1.25rem;
+      --fs-4: 1.5rem;
+      --radius: 14px;
+      --shadow: 0 8px 24px rgba(0,0,0,.22);
+      --maxw: 1200px;
+      --gap: 14px;
+    }
+
+    html[data-theme="dark"] {
+      --bg: #0f1221;
+      --card: #171a2b;
+      --accent: #7c5cff;
+      --accent-2: #00d4ff;
+      --text: #f2f4ff;
+      --muted: #b6b9d6;
+      --focus: #ffd166;
+      --btnTextOnGrad: #0b0e1a;
+      --border: rgba(255,255,255,.10);
+      --chipGrad: linear-gradient(135deg, var(--accent), var(--accent-2));
+      --headerBg: rgba(15,18,33,.85);
+      --embedBg: #0b0e1a;
+    }
+    html[data-theme="light"] {
+      --bg: #f7f8fc;
+      --card: #ffffff;
+      --accent: #4c5cff;
+      --accent-2: #00a0b8;
+      --text: #0f1221;
+      --muted: #5b637a;
+      --focus: #ffb703;
+      --btnTextOnGrad: #ffffff;
+      --border: rgba(0,0,0,.08);
+      --chipGrad: linear-gradient(135deg, var(--accent), var(--accent-2));
+      --headerBg: rgba(255,255,255,.85);
+      --embedBg: #e9eef8;
+    }
+    html[data-theme="vibrant"] {
+      --bg: #0a0b16;
+      --card: #111428;
+      --accent: #ff5c7c;
+      --accent-2: #22d1ee;
+      --text: #f7f9ff;
+      --muted: #c3c7e6;
+      --focus: #ffe066;
+      --btnTextOnGrad: #0a0b16;
+      --border: rgba(255,255,255,.12);
+      --chipGrad: linear-gradient(135deg, #ff5c7c, #22d1ee 60%, #7c5cff);
+      --headerBg: rgba(10,11,22,.88);
+      --embedBg: #0b0e1a;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", Arial, "PingFang TC", "Microsoft JhengHei", sans-serif; }
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover, a:focus { text-decoration: underline; }
+    img, iframe { max-width: 100%; height: auto; border: 0; }
+
+    header {
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--headerBg); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--gap);
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; letter-spacing: .2px;
+      color: var(--text); font-size: var(--fs-2);
+    }
+    .chip {
+      background: var(--chipGrad);
+      color: var(--btnTextOnGrad); padding: 3px 10px; border-radius: 999px; font-size: var(--fs-0); font-weight: 700;
+    }
+
+    .controls { display: flex; gap: 10px; align-items: center; }
+    .settings, .theme {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 12px; border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+    }
+    .settings:focus-visible, .theme:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+    main { padding: 20px 16px 60px; }
+    .container { max-width: var(--maxw); margin: 0 auto; display: grid; gap: 18px; }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display: grid; gap: 14px;
+    }
+    .section h2 {
+      margin: 0; font-size: var(--fs-4);
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 10px;
+    }
+    .meta { color: var(--muted); font-size: var(--fs-0); }
+
+    .grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+    .card {
+      background: clamp(0%, 100%, var(--card));
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      display: grid; gap: 6px;
+    }
+    .card h3 { margin: 0; font-size: var(--fs-2); }
+    .card p { margin: 0; color: var(--muted); font-size: var(--fs-0); }
+    .card a.btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: var(--btnTextOnGrad); font-weight: 700; padding: 8px 12px; border-radius: 10px;
+      width: fit-content;
+    }
+
+    .yt-grid { display: grid; gap: 12px; grid-template-columns: 1fr; }
+    .yt {
+      position: relative; width: 100%;
+      padding-top: 56.25%;
+      border-radius: 12px; overflow: hidden;
+      background: var(--embedBg);
+      border: 1px solid var(--border);
+    }
+    .yt iframe { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+    @media (min-width: 720px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .yt-grid { grid-template-columns: repeat(2, 1fr); }
+      .brand { font-size: var(--fs-3); }
+    }
+    @media (min-width: 1024px) {
+      .grid { grid-template-columns: repeat(3, 1fr); }
+      .yt-grid { grid-template-columns: repeat(3, 1fr); }
+      .wrap { padding: 14px 20px; }
+      .section { padding: 20px; }
+    }
+
+    .hidden-by-lang { display: none !important; }
+
+    .menu-pop {
+      position:absolute; right:0; top:6px; background: var(--card);
+      border:1px solid var(--border); border-radius:10px; padding:8px;
+      display:grid; gap:6px; min-width:200px; z-index:2000; pointer-events:auto;
+      box-shadow: var(--shadow);
+    }
+    .menu-pop[hidden] { display: none !important; }
+    .menu-pop button { width: 100%; text-align: left; }
+    .group-label { color: var(--muted); font-size: var(--fs-0); padding: 4px 8px 2px; }
+    .menu-divider { height:1px; background: var(--border); margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <header aria-label="Site header">
+    <div class="wrap" role="navigation" aria-label="Top bar">
+      <div class="brand" aria-label="Brand">
+        <span>Combinational Logic Hub</span>
+        <span class="chip">RWD</span>
+      </div>
+
+      <div class="controls">
+        <button class="theme" id="themeBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="themeMenu" title="Theme">
+          <span aria-hidden="true">🎨</span>
+          <span id="themeLabel">Theme</span>
+        </button>
+
+        <button class="settings" id="settingsBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="langMenu" title="Language">
+          <span aria-hidden="true">⚙️</span>
+          <span id="settingsLabel">Language</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap" style="position: relative;">
+    <div id="themeMenu" role="menu" aria-label="Theme menu" hidden class="menu-pop">
+      <div class="group-label">Color theme</div>
+      <button role="menuitem" data-theme-choice="light" class="theme" style="justify-content:flex-start;">Light</button>
+      <button role="menuitem" data-theme-choice="dark" class="theme" style="justify-content:flex-start;">Dark</button>
+      <button role="menuitem" data-theme-choice="vibrant" class="theme" style="justify-content:flex-start;">Vibrant</button>
+    </div>
+
+    <div id="langMenu" role="menu" aria-label="Language menu" hidden class="menu-pop" style="right: 110px;">
+      <div class="group-label">Language</div>
+      <button role="menuitem" data-lang-choice="en" class="settings" style="justify-content:flex-start;">English</button>
+      <button role="menuitem" data-lang-choice="zh" class="settings" style="justify-content:flex-start;">繁體中文</button>
+    </div>
+  </div>
+
+  <main id="content" tabindex="-1">
+    <div class="container" id="sections">
+      <!-- English Section -->
+      <section class="section" aria-labelledby="en-title" data-i18n-scope="en" data-lang="en">
+        <h2 id="en-title">
+          <span>English Resources</span>
+          <span class="meta">Combinational Logic and Digital Logic</span>
+        </h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Combinational Logic and Boolean Algebra Fundamentals - NotebookLM</h3>
+            <p>Overview notebook for combinational logic fundamentals.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9" target="_blank" rel="noopener">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Combinational Logic: Algebra and Circuits (Infographic)</h3>
+            <p>Infographic covering algebraic methods and circuit views.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9?artifactId=fda62573-9b65-4f08-9617-2162de0ed5a6" target="_blank" rel="noopener">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Logic Flashcards (59 Flashcards)</h3>
+            <p>Practice essential logic concepts with flashcards.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9?artifactId=88d593aa-7434-4aa9-b4ff-f1e63942413c" target="_blank" rel="noopener">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Digital Logic Flashcards (39 Flashcards)</h3>
+            <p>Drill digital logic topics with focused flashcards.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9?artifactId=7730a272-1572-4a9d-a185-db084de1c1ff" target="_blank" rel="noopener">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Mind Map (NOT Sharable)</h3>
+            <p>Mind map available but not shareable.</p>
+            <span class="meta">No public link</span>
+          </article>
+
+          <article class="card">
+            <h3>Study Guide (NOT Sharable)</h3>
+            <p>Study guide available but not shareable.</p>
+            <span class="meta">No public link</span>
+          </article>
+
+          <article class="card">
+            <h3>Combinational Logic (Video Overview - Brief)</h3>
+            <p>Short overview video on combinational logic.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9?artifactId=34d3a9ee-aba5-4436-b6db-5286a60689eb" target="_blank" rel="noopener">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Karnaugh Maps (Video Overview - Brief)</h3>
+            <p>Quick intro to K-maps for logic simplification.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9?artifactId=18d974f3-438d-4582-9a27-2420b10ce1a4" target="_blank" rel="noopener">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Combinational Logic The Digital Language (Audio Overview - Deep Dive)</h3>
+            <p>Audio deep dive into the language of digital logic.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9?artifactId=1f2da2e2-45c4-42a1-8f9c-ec83a554c4c0" target="_blank" rel="noopener">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Digital Quiz (28 Quiz)</h3>
+            <p>Test your knowledge with 28 questions.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9?artifactId=a16320ba-c836-49f3-b1c1-5f97591354ae" target="_blank" rel="noopener">Open</a>
+          </article>
+
+          <article class="card">
+            <h3>Digital Logic Quiz (10 Quiz)</h3>
+            <p>Short quiz set on digital logic fundamentals.</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/1ffa99ed-531b-4bd1-8af5-ee9104f1d4d9?artifactId=25fedb85-6c9a-4278-9a11-d686be1aaccf" target="_blank" rel="noopener">Open</a>
+          </article>
+        </div>
+
+        <div class="section" style="padding:12px;">
+          <h3 style="margin:0 0 8px 0;">YouTube Subsection</h3>
+          <div class="yt-grid">
+            <div class="yt" aria-label="Combinational Logic (Video Overview - Brief)">
+              <iframe src="https://www.youtube.com/embed/ljK1tuP8wbo" title="Combinational Logic (Video Overview - Brief)" allowfullscreen></iframe>
+            </div>
+            <div class="yt" aria-label="Karnaugh Maps (Video Overview - Brief)">
+              <iframe src="https://www.youtube.com/embed/sXHXOtkvs-k" title="Karnaugh Maps (Video Overview - Brief)" allowfullscreen></iframe>
+            </div>
+            <div class="yt" aria-label="Combinational Logic The Digital Language (Audio Overview - Deep Dive)">
+              <iframe src="https://www.youtube.com/embed/SIWE8c8Bh4o" title="Combinational Logic The Digital Language (Audio Overview - Deep Dive)" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chinese Section -->
+      <section class="section" aria-labelledby="zh-title" data-i18n-scope="zh" data-lang="zh">
+        <h2 id="zh-title">
+          <span>中文資源</span>
+          <span class="meta">組合邏輯與數位邏輯</span>
+        </h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>組合邏輯基礎與簡化 - NotebookLM</h3>
+            <p>組合邏輯基礎的筆記本。</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/f9a97f9c-fe9d-4058-9710-c60c63a4b621" target="_blank" rel="noopener">前往</a>
+          </article>
+
+          <article class="card">
+            <h3>Combinational Logic Visual Guide (Infographic)</h3>
+            <p>可視化圖解，涵蓋組合邏輯重點。</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/f9a97f9c-fe9d-4058-9710-c60c63a4b621?artifactId=d2bfab13-8359-4cb5-afa2-d1e606f05c57" target="_blank" rel="noopener">前往</a>
+          </article>
+
+          <article class="card">
+            <h3>數位邏輯 抽認卡 (50 Flashcards)</h3>
+            <p>以抽認卡練習關鍵概念。</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/f9a97f9c-fe9d-4058-9710-c60c63a4b621?artifactId=e8da4945-e68e-4a3d-babd-e94eeae8c4af" target="_blank" rel="noopener">前往</a>
+          </article>
+
+          <article class="card">
+            <h3>Mind Map (NOT Sharable)</h3>
+            <p>心智圖不可分享。</p>
+            <span class="meta">無公開連結</span>
+          </article>
+
+          <article class="card">
+            <h3>Study Guide (NOT Sharable)</h3>
+            <p>學習指南不可分享。</p>
+            <span class="meta">無公開連結</span>
+          </article>
+
+          <article class="card">
+            <h3>Combinational Logic (Video Overview - Explainer)</h3>
+            <p>說明型概觀影片。</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/f9a97f9c-fe9d-4058-9710-c60c63a4b621?artifactId=aa766e46-31df-4290-bffc-4a0a5556ae59" target="_blank" rel="noopener">前往</a>
+          </article>
+
+          <article class="card">
+            <h3>Simplifying Digital Logic with Karnaugh Maps (Audio Overview - Deep Dive)</h3>
+            <p>以 Karnaugh 圖深入簡化數位邏輯的音訊導覽。</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/f9a97f9c-fe9d-4058-9710-c60c63a4b621?artifactId=8ed82e3b-db1c-4074-88a2-cbfde691786b" target="_blank" rel="noopener">前往</a>
+          </article>
+
+          <article class="card">
+            <h3>邏輯測驗 (28 Quiz)</h3>
+            <p>28 題測驗檢視理解。</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/f9a97f9c-fe9d-4058-9710-c60c63a4b621?artifactId=cbf44f0f-8fd6-4076-9dfd-2715cd74589a" target="_blank" rel="noopener">前往</a>
+          </article>
+
+          <article class="card">
+            <h3>數位邏輯 測驗 (12 Quiz)</h3>
+            <p>12 題數位邏輯測驗。</p>
+            <a class="btn" href="https://notebooklm.google.com/notebook/f9a97f9c-fe9d-4058-9710-c60c63a4b621?artifactId=8d02de76-2a9e-4437-b725-0cc840b818f1" target="_blank" rel="noopener">前往</a>
+          </article>
+        </div>
+
+        <div class="section" style="padding:12px;">
+          <h3 style="margin:0 0 8px 0;">YouTube 子區塊</h3>
+          <div class="yt-grid">
+            <div class="yt" aria-label="Combinational Logic (Video Overview - Explainer)">
+              <iframe src="https://www.youtube.com/embed/WWsNcpc6jac" title="Combinational Logic (Video Overview - Explainer)" allowfullscreen></iframe>
+            </div>
+            <div class="yt" aria-label="Simplifying Digital Logic with Karnaugh Maps (Audio Overview - Deep Dive)">
+              <iframe src="https://www.youtube.com/embed/5u5wvV_NQz0" title="Simplifying Digital Logic with Karnaugh Maps (Audio Overview - Deep Dive)" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    const UI = {
+      en: { language: "Language", theme: "Theme", brand: "Combinational Logic Hub" },
+      zh: { language: "語言", theme: "主題", brand: "組合邏輯資源中心" }
+    };
+
+    const state = { lang: "en", theme: "dark" };
+
+    function normalizeSmartQuotesInText(root) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, null);
+      let node;
+      while ((node = walker.nextNode())) {
+        let t = node.nodeValue;
+        t = t.replace(/[“”]/g, '"').replace(/[‘’]/g, "'");
+        const inZh = node.parentElement && node.parentElement.closest('[data-lang="zh"]');
+        if (inZh) t = t.replace(/你/g, "您");
+        node.nodeValue = t;
+      }
+    }
+
+    function cleanUrlRangeParams(root) {
+      const links = root.querySelectorAll("a[href]");
+      links.forEach(a => {
+        const href = a.getAttribute("href") || "";
+        const idx = href.indexOf("&range=");
+        if (idx !== -1) a.setAttribute("href", href.substring(0, idx));
+      });
+    }
+
+    function applyLangVisibility(lang) {
+      document.querySelectorAll('[data-lang]').forEach(sec => {
+        const show = sec.getAttribute('data-lang') === lang;
+        sec.classList.toggle('hidden-by-lang', !show);
+      });
+    }
+
+    function applyTheme(theme) {
+      const t = (theme === "light" || theme === "vibrant") ? theme : "dark";
+      document.documentElement.setAttribute("data-theme", t);
+      state.theme = t;
+      try { localStorage.setItem("theme", t); } catch(e) {}
+    }
+
+    function setLanguage(lang) {
+      state.lang = (lang === "zh" ? "zh" : "en");
+      const t = UI[state.lang];
+
+      document.getElementById("settingsLabel").textContent = t.language;
+      document.getElementById("themeLabel").textContent = t.theme;
+      document.querySelector(".brand span").textContent = t.brand;
+
+      applyLangVisibility(state.lang);
+      normalizeSmartQuotesInText(document.body);
+
+      try { localStorage.setItem("lang", state.lang); } catch(e) {}
+    }
+
+    function hideMenus() {
+      settingsBtn.setAttribute("aria-expanded", "false");
+      themeBtn.setAttribute("aria-expanded", "false");
+      langMenu.hidden = true;
+      themeMenu.hidden = true;
+    }
+
+    const settingsBtn = document.getElementById("settingsBtn");
+    const langMenu = document.getElementById("langMenu");
+    const themeBtn = document.getElementById("themeBtn");
+    const themeMenu = document.getElementById("themeMenu");
+
+    settingsBtn.addEventListener("click", (e) => {
+      const expanded = settingsBtn.getAttribute("aria-expanded") === "true";
+      hideMenus();
+      if (!expanded) {
+        settingsBtn.setAttribute("aria-expanded", "true");
+        langMenu.hidden = false;
+      }
+      e.stopPropagation();
+    });
+
+    themeBtn.addEventListener("click", (e) => {
+      const expanded = themeBtn.getAttribute("aria-expanded") === "true";
+      hideMenus();
+      if (!expanded) {
+        themeBtn.setAttribute("aria-expanded", "true");
+        themeMenu.hidden = false;
+      }
+      e.stopPropagation();
+    });
+
+    langMenu.addEventListener("click", (e) => {
+      const btn = e.target.closest('#langMenu [data-lang-choice]');
+      if (!btn) return;
+      const lang = btn.getAttribute("data-lang-choice");
+      setLanguage(lang);
+      hideMenus();
+    });
+
+    themeMenu.addEventListener("click", (e) => {
+      const btn = e.target.closest('#themeMenu [data-theme-choice]');
+      if (!btn) return;
+      const theme = btn.getAttribute("data-theme-choice");
+      applyTheme(theme);
+      hideMenus();
+    });
+
+    document.addEventListener("click", () => hideMenus());
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") hideMenus(); });
+
+    window.addEventListener("DOMContentLoaded", () => {
+      cleanUrlRangeParams(document);
+      normalizeSmartQuotesInText(document.body);
+
+      const storedLang = (() => { try { return localStorage.getItem("lang"); } catch(e) { return null; } })();
+      const storedTheme = (() => { try { return localStorage.getItem("theme"); } catch(e) { return null; } })();
+
+      applyTheme(storedTheme || state.theme);
+      setLanguage(storedLang || state.lang);
+      hideMenus();
+    });
+  </script>
+</body>
+</html>
